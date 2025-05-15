@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+    <name>COM_CCM</name>
+    <creationDate>2025-05-14</creationDate>
+    <author>Reem</author>
+    <authorEmail>reem.atalah1@gmail.com</authorEmail>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.0</version>
+    <description>COM_CCM_DESCRIPTION</description>
+    <namespace path="src">Reem\Component\CCM</namespace>
+
+    <administration>
+        <files folder="admin">
+            <folder>services</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>language</folder>
+        </files>
+        <menu link="option=com_ccm" img="class:default">COM_CCM_MENU_BACKEND</menu>
+    </administration>
+</extension>
