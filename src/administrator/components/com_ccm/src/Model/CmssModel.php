@@ -9,7 +9,7 @@ use Joomla\CMS\Language\Associations;
 
 \defined('_JEXEC') or die;
 
-class CcmModel extends ListModel {
+class CmssModel extends ListModel {
 
     public function __construct($config = [], ?MVCFactoryInterface $factory = null) {
         if (empty($config['filter_fields'])) {
@@ -29,12 +29,16 @@ class CcmModel extends ListModel {
 
     protected function populateState($ordering = 'cms_name', $direction = 'ASC') {
         $app   = Factory::getApplication();
+
+        // define the limit of the pagination
         $value = $app->input->get('limit', $app->get('list_limit', 0), 'uint');
         $this->setState('list.limit', $value);
 
+        // define the start point for the listing
         $value = $app->input->get('limitstart', 0, 'uint');
         $this->setState('list.start', $value);
 
+        // request to get the search filter
         $search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
         $this->setState('filter.search', $search);
 
@@ -42,11 +46,12 @@ class CcmModel extends ListModel {
     }
 
     protected function getListQuery() {
+        // Initialize the list search query from to be called in th db
         $db    = $this->getDatabase();
         $query = $db->getQuery(true);
         $query->select(
             $this->getState('list.select', 'a.id, a.cms_name')
-        )->from($db->quoteName('#__cms', 'a'));
+        )->from($db->quoteName('#__ccm_cms', 'a'));
 
         $search = $this->getState('filter.search');
         if (!empty($search))

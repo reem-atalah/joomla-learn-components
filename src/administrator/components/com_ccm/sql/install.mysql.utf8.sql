@@ -1,15 +1,15 @@
 --
--- Table structure for table `#__cms`
+-- Table structure for table `#__ccm_cms`
 --
 
-CREATE TABLE IF NOT EXISTS `#__cms` (
+CREATE TABLE IF NOT EXISTS `#__ccm_cms` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `cms_name` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table `#__cms`
-INSERT INTO `#__cms` (`id`, `cms_name`) VALUES
+-- Dumping data for table `#__ccm_cms`
+INSERT INTO `#__ccm_cms` (`id`, `cms_name`) VALUES
 (1, 'Joomla'),
 (2, 'WordPress'),
 (3, 'Drupal'),

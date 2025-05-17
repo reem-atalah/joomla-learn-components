@@ -1,2 +1,2 @@
-DROP TABLE IF EXISTS `#__cms`;
+DROP TABLE IF EXISTS `#__ccm_cms`;
 

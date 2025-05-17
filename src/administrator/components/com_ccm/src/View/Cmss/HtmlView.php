@@ -1,5 +1,5 @@
 <?php
-namespace Reem\Component\CCM\Administrator\View\CCM;
+namespace Reem\Component\CCM\Administrator\View\Cmss;
 
 defined('_JEXEC') or die;
 
@@ -15,7 +15,7 @@ class HtmlView extends BaseHtmlView
 
     public function display($tpl = null): void
     {
-        /** @var Ccm $model */
+        /** @var Cmss $model */
         $model = $this->getModel();
 
         $this->items         = $model->getItems();

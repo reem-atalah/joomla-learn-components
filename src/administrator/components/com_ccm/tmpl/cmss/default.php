@@ -3,7 +3,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
 ?>
-<form action="<?php echo Route::_('index.php?option=com_ccm&view=ccm'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo Route::_('index.php?option=com_ccm&view=cmss'); ?>" method="post" name="adminForm" id="adminForm">
 
     <div class="row">
         <div class="col-md-12">
