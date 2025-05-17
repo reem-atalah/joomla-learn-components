@@ -1,0 +1,22 @@
+--
+-- Table structure for table `#__cms`
+--
+
+CREATE TABLE IF NOT EXISTS `#__cms` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `cms_name` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table `#__cms`
+INSERT INTO `#__cms` (`id`, `cms_name`) VALUES
+(1, 'Joomla'),
+(2, 'WordPress'),
+(3, 'Drupal'),
+(4, 'Magento'),
+(5, 'Shopify'),
+(6, 'Blogger'),
+(7, 'Wix'),
+(8, 'Squarespace'),
+(9, 'Weebly'),
+(10, 'PrestaShop');

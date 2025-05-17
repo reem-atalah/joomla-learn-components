@@ -11,5 +11,5 @@ class DisplayController extends BaseController
      * @var    string
      * @since  __DEV__
      */
-    protected $default_view = 'CCM';
+    protected $default_view = 'Ccm';
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config addfieldprefix="Joomla\Component\CCM\Administrator\Field">
+	<help key="CCM"/>
+	<fieldset name="ccm" label="COM_CCM_OPTIONS">
+		<field
+			type="text"
+			label="COM_CCM_CONFIG_CMS_NAME_LABEL"
+			description="COM_CCM_CONFIG_CMS_NAME_DESCRIPTION"
+		/>
+	</fieldset>
+</config>

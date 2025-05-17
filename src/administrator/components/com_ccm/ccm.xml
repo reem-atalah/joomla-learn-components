@@ -8,13 +8,25 @@
     <version>1.0.0</version>
     <description>COM_CCM_DESCRIPTION</description>
     <namespace path="src">Reem\Component\CCM</namespace>
-
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
     <administration>
-        <files folder="admin">
+        <files>
             <folder>services</folder>
             <folder>src</folder>
             <folder>tmpl</folder>
             <folder>language</folder>
+            <folder>sql</folder>
+            <folder>forms</folder>
+            <file>config.xml</file>
         </files>
         <menu link="option=com_ccm" img="class:default">COM_CCM_MENU_BACKEND</menu>
     </administration>
