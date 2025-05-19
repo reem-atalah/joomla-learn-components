@@ -24,7 +24,7 @@ use Joomla\CMS\Language\Text;
                     <tr>
                         <td><?php echo $item->id; ?></td>
                         <td>
-                            <a href="<?php echo Route::_('index.php?option=com_ccm&view=cms&id=' . (int) $item->id); ?>">
+                            <a href="<?php echo Route::_('index.php?option=com_ccm&view=cms&task=cms.edit&id=' . (int) $item->id); ?>">
                                 <?php echo htmlspecialchars($item->cms_name, ENT_QUOTES, 'UTF-8'); ?>
                             </a>
                         </td>

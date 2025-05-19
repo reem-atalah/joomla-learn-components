@@ -3,13 +3,13 @@
     <field
         name="cms_name"
         type="text"
-        label="COM_CCM_CMS_NAME"
+        label="COM_CCM_CONFIG_CMS_NAME_LABEL"
         required="true"
     />
     <field
         name="id"
         type="text"
-        label="COM_CCM_CMS_ID"
+        label="COM_CCM_CONFIG_CMS_ID_LABEL"
         required="false"
     />
 </form>
