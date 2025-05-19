@@ -27,6 +27,7 @@
             <folder>sql</folder>
             <folder>forms</folder>
             <file>config.xml</file>
+            <file>access.xml</file>
         </files>
         <menu link="option=com_ccm" img="class:default">COM_CCM_MENU_BACKEND</menu>
     </administration>

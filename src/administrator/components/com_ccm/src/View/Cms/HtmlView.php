@@ -30,8 +30,27 @@ class HtmlView extends BaseHtmlView
             throw new GenericDataException(implode("\n", $errors), 500);
         }
 
+        // helps in adding the action buttons, Save, Apply, and Cancel
         $this->addToolbar();
-        
+
         parent::display($tpl);
+    }
+
+    protected function addToolbar()
+    {
+        Factory::getApplication()->input->set('hidemainmenu', true);
+        $isNew = ($this->item->id == 0);
+        $canDo = ContentHelper::getActions('com_ccm');
+        $toolbar = Toolbar::getInstance();
+        ToolbarHelper::title(Text::_('COM_CCM_PROJECT_TITLE_' . ($isNew ? 'ADD' : 'EDIT')));
+        if ($canDo->get('core.create'))
+        {
+            if ($isNew)
+                $toolbar->apply('cms.save');
+            else
+                $toolbar->apply('cms.apply');
+            $toolbar->save('cms.save');
+        }
+        $toolbar->cancel('cms.cancel', 'JTOOLBAR_CLOSE');
     }
 }

@@ -6,10 +6,10 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Table\Table;
 use Joomla\Database\DatabaseInterface;
 
-class CcmTable extends Table
+class CmsTable extends Table
 {
     public function __construct(DatabaseInterface $db)
     {
-        parent::__construct('#__cms', 'cms_name', $db);
+        parent::__construct('#__ccm_cms', 'id', $db);
     }
 }
