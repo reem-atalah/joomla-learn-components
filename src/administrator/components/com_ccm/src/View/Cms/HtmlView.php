@@ -42,7 +42,7 @@ class HtmlView extends BaseHtmlView
         $isNew = ($this->item->id == 0);
         $canDo = ContentHelper::getActions('com_ccm');
         $toolbar = Toolbar::getInstance();
-        ToolbarHelper::title(Text::_('COM_CCM_PROJECT_TITLE_' . ($isNew ? 'ADD' : 'EDIT')));
+        ToolbarHelper::title(Text::_('COM_CCM_CMS_NAME_' . ($isNew ? 'ADD' : 'EDIT')));
         if ($canDo->get('core.create'))
         {
             if ($isNew)

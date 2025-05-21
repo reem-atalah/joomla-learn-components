@@ -11,18 +11,6 @@ use Joomla\CMS\Language\Associations;
 
 class CmsModel extends AdminModel {
 
-    public function getItem($pk = null)
-    {
-        $app = Factory::getApplication();
-        $pk = $app->input->getInt('id', 0);
-        $this->setState('cms.id', $pk);
-        $item = parent::getItem($pk);
-        if (empty($item)) {
-            return false;
-        }
-        return $item;
-    }
-
     public function getForm($data = array(), $loadData = true)
     {
         $form = $this->loadForm(

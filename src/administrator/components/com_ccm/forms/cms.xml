@@ -12,4 +12,10 @@
         label="COM_CCM_CONFIG_CMS_ID_LABEL"
         required="false"
     />
+    <field
+        name="cms_id"
+        type="cms"
+        label="Select CMS"
+        required="false"
+    />
 </form>
