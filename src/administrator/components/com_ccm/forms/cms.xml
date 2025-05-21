@@ -18,4 +18,13 @@
         label="Select CMS you want to migrate with"
         required="false"
     />
+    <field
+        name="documents"
+        type="subform"
+        label="Documents"
+        description="Add documents for this CMS"
+        formsource="administrator/components/com_ccm/forms/document.xml"
+        multiple="true"
+        layout="joomla.form.field.subform.repeatable"
+    />
 </form>

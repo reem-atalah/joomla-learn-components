@@ -8,6 +8,8 @@ use Joomla\Database\DatabaseInterface;
 
 class CmsTable extends Table
 {
+    protected $_jsonEncode = ['documents', 'params'];
+
     public function __construct(DatabaseInterface $db)
     {
         parent::__construct('#__ccm_cms', 'id', $db);

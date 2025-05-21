@@ -17,7 +17,9 @@ class CmssModel extends ListModel {
                 'id',
                 'a.id',
                 'cms_name',
-                'a.cms_name'
+                'a.cms_name',
+                'documents',
+                'a.documents',
             ];
 
             if (Associations::isEnabled()) {

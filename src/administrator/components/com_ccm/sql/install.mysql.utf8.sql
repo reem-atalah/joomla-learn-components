@@ -5,6 +5,7 @@
 CREATE TABLE IF NOT EXISTS `#__ccm_cms` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `cms_name` varchar(100) NOT NULL DEFAULT '',
+  `documents` JSON DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
 

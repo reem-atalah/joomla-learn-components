@@ -1,0 +1,20 @@
+<form>
+    <field
+        name="doc_name"
+        type="text"
+        label="Document Name"
+        required="false"
+    />
+    <field
+        name="doc_description"
+        type="textarea"
+        label="Document Description"
+        required="false"
+    />
+    <field
+        name="doc_file"
+        type="file"
+        label="Document File"
+        required="ture"
+    />
+</form>
