@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form>
+<form addfieldprefix="Reem\Component\CCM\Administrator\Fields">
     <field
         name="cms_name"
         type="text"
@@ -13,9 +13,9 @@
         required="false"
     />
     <field
-        name="cms_id"
+        name="cms_migration"
         type="cms"
-        label="Select CMS"
+        label="Select CMS you want to migrate with"
         required="false"
     />
 </form>

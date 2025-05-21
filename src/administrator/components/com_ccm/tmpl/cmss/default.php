@@ -15,14 +15,12 @@ use Joomla\CMS\Language\Text;
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th><?php echo Text::_('ID'); ?></th>
                     <th><?php echo Text::_('Name'); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($this->items as $item) : ?>
                     <tr>
-                        <td><?php echo $item->id; ?></td>
                         <td>
                             <a href="<?php echo Route::_('index.php?option=com_ccm&view=cms&task=cms.edit&id=' . (int) $item->id); ?>">
                                 <?php echo htmlspecialchars($item->cms_name, ENT_QUOTES, 'UTF-8'); ?>

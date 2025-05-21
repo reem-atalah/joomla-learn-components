@@ -1,5 +1,5 @@
 <?php
-namespace Reem\Component\CCM\Administrator\Field;
+namespace Reem\Component\CCM\Administrator\Fields;
 use Joomla\CMS\Form\Field\ListField;
 use Joomla\CMS\Factory;
 
@@ -13,7 +13,7 @@ class CmsField extends ListField {
     public function getOptions()
     {
         error_log('CmsField loaded!');
-        $db = Factory::getContainer()->get('DatabaseDriver');
+        $db = $this->getDatabase();
         $query = $db->getQuery(true);
         $query->select('a.id, a.cms_name')
             ->from('#__ccm_cms AS a')
