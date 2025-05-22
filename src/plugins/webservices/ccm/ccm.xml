@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="webservices" method="upgrade">
+    <name>plg_webservices_cms</name>
+    <author>Reem Atalah</author>
+    <creationDate>22 MAy 2025</creationDate>
+    <copyright>Copyright 2023 PiedPiper Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.0</version>
+    <description>PLG_WEBSERVICES_CMS_XML_DESCRIPTION </description>
+    <files>
+        <filename plugin="ccm">ccm.php</filename>
+    </files>
+</extension>
