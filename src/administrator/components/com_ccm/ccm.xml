@@ -18,6 +18,11 @@
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
+    <api>
+        <files folder="api/components/com_ccm">
+            <folder>src</folder>
+        </files>
+    </api>
     <administration>
         <files>
             <folder>services</folder>
