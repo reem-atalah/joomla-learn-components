@@ -45,7 +45,32 @@ class Migration
                 // error_log(print_r($posts, true));
 
                 // call joomla import api
-                
+                foreach ($posts as $post) {
+                    // Prepare data for Joomla API
+                    $data = [
+                        'title' => $post['title'],
+                        'content' => $post['content'],
+                        'status' => 'published', // or draft, etc.
+                        'created' => date('Y-m-d H:i:s', strtotime($post['date'])),
+                        'modified' => date('Y-m-d H:i:s', strtotime($post['modified'])),
+                    ];
+                    error_log('Preparing to import post: ' . $post['title']);
+                    error_log('Data: ' . print_r($data, true));
+                    // Send data to Joomla API
+                    $response_joomla = HttpFactory::getHttp()->post($url_joomla . '/content/articles', [
+                        'headers' => [
+                            'X-Joomla-Token' => $joomla_token,
+                            'Content-Type' => 'application/json',
+                        ],
+                        'body' => json_encode($data),
+                    ]);
+
+                    if ($response_joomla->code === 201) {
+                        error_log('Successfully imported post: ' . $post['title']);
+                    } else {
+                        error_log('Error importing post: ' . $post['title'] . '. Response: ' . $response_joomla->body);
+                    }
+                }
 
             }
             
