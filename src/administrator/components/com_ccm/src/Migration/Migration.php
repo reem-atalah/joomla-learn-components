@@ -19,7 +19,6 @@ class Migration
      */
     public function migrate()
     {
-        // $url_wordpress = 'https://najmadates.wordpress.com/wp-json/wp/v2'; // need to be added in the config
         $url_wordpress = 'https://public-api.wordpress.com/rest/v1.1/sites/najmadates.wordpress.com'; // need to be added in the config
         $url_joomla = 'http://localhost:8000/api/index.php/v1'; // need to be added in the config
         $joomla_token = 'c2hhMjU2OjcyMDo2NDJlNjY4MjY5ZGVhOWYwZGQ2NWY5NGQwYjg2YWUwODk2ZTRiMmE0MGE1MTY4Y2JlZDZlMmZkNTc5MDU4MTgz'; // need to be added in the config
@@ -57,7 +56,6 @@ class Migration
                     ];
                     error_log(json_encode($data));
                     // Send data to Joomla API
-                    Factory::getApplication()->isClient('site');
                     $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($data), 
                     [
                         'headers' => [
