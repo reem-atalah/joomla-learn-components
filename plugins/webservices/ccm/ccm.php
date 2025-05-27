@@ -1,5 +1,6 @@
 <?php
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Router\Route as ApiRoute;
 use Joomla\Router\Route;
 class PlgWebservicesCcm extends CMSPlugin
 {
@@ -10,5 +11,18 @@ class PlgWebservicesCcm extends CMSPlugin
             'cmss',
             ['component' => 'com_ccm']
         );
+        $router->createCRUDRoutes(
+            'v1/migration',
+            'migration',
+            ['component' => 'com_ccm']
+        );
+        // $router->addRoutes([
+        //     [
+        //         'method'    => ['POST'],
+        //         'route'     => 'v1/migration',
+        //         'task'      => 'migration.create',
+        //         'defaults'  => ['component' => 'com_ccm'],
+        //     ],
+        // ]);
     }
 }
