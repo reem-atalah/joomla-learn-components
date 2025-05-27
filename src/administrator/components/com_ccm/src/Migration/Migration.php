@@ -2,9 +2,7 @@
 namespace Reem\Component\CCM\Administrator\Migration;
 // namespace Joomla\Component\Ccm\Administrator\Migration;
 
-use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Http\HttpFactory;
-
 /**
  * Class Migration
  *
@@ -25,6 +23,8 @@ class Migration
         $url_wordpress = 'https://public-api.wordpress.com/rest/v1.1/sites/najmadates.wordpress.com'; // need to be added in the config
         $url_joomla = 'http://localhost:8000/api/index.php/v1'; // need to be added in the config
         $joomla_token = 'c2hhMjU2OjcyMDo2NDJlNjY4MjY5ZGVhOWYwZGQ2NWY5NGQwYjg2YWUwODk2ZTRiMmE0MGE1MTY4Y2JlZDZlMmZkNTc5MDU4MTgz'; // need to be added in the config
+        $options = new \Joomla\Registry\Registry;
+        
         // Export data from wordpress
         error_log('Starting migration from WordPress to Joomla');
         $response = HttpFactory::getHttp()->get($url_wordpress . '/posts', [
@@ -42,38 +42,38 @@ class Migration
             {
                 error_log('Found ' . $body["found"] . ' posts in WordPress');
                 $posts = $body["posts"];
-                // error_log(print_r($posts, true));
 
                 // call joomla import api
                 foreach ($posts as $post) {
                     // Prepare data for Joomla API
                     $data = [
                         'title' => $post['title'],
-                        'content' => $post['content'],
+                        'articletext' => $post['content'],
                         'status' => 'published', // or draft, etc.
                         'created' => date('Y-m-d H:i:s', strtotime($post['date'])),
                         'modified' => date('Y-m-d H:i:s', strtotime($post['modified'])),
+                        'catid' => 2, //uncategorized
+                        'language' => '*', // all languages
                     ];
-                    error_log('Preparing to import post: ' . $post['title']);
-                    error_log('Data: ' . print_r($data, true));
+                    error_log(json_encode($data));
                     // Send data to Joomla API
-                    $response_joomla = HttpFactory::getHttp()->post($url_joomla . '/content/articles', [
+                    Factory::getApplication()->isClient('site');
+                    $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($data), 
+                    [
                         'headers' => [
-                            'X-Joomla-Token' => $joomla_token,
+                            'Authorization' => 'Bearer ' . $joomla_token,
                             'Content-Type' => 'application/json',
                         ],
-                        'body' => json_encode($data),
                     ]);
-
+                    error_log('Joomla API Response: ');
+                    // error_log(print_r($response_joomla, true));
                     if ($response_joomla->code === 201) {
-                        error_log('Successfully imported post: ' . $post['title']);
+                        error_log('Successfully imported post');
                     } else {
-                        error_log('Error importing post: ' . $post['title'] . '. Response: ' . $response_joomla->body);
+                        error_log('Error importing post: ');
                     }
                 }
-
             }
-            
         } else {
             // Handle error
             error_log('Error fetching data from WordPress: ' . $response->code);
