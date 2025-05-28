@@ -1,6 +1,5 @@
 <?php
 namespace Reem\Component\CCM\Administrator\Migration;
-// namespace Joomla\Component\Ccm\Administrator\Migration;
 
 use Joomla\CMS\Http\HttpFactory;
 /**
@@ -27,50 +26,48 @@ class Migration
         // Export data from wordpress
         error_log('Starting migration from WordPress to Joomla');
         $response = HttpFactory::getHttp()->get($url_wordpress . '/posts', [
-            'headers' => [
                 'Accept' => 'application/json',
-            ]
         ]);
-        // error_log('Response: ' . print_r($response, true));
         if ($response->code === 200) {
             error_log('Successfully fetched data from WordPress');
             $body = json_decode($response->body, true);
-            // error_log(print_r($body, true));
 
             if ($body && $body["found"])
             {
                 error_log('Found ' . $body["found"] . ' posts in WordPress');
                 $posts = $body["posts"];
 
-                // call joomla import api
+                $all_data = [];
                 foreach ($posts as $post) {
                     // Prepare data for Joomla API
                     $data = [
                         'title' => $post['title'],
                         'articletext' => $post['content'],
-                        'status' => 'published', // or draft, etc.
+                        'status' => 'published',
                         'created' => date('Y-m-d H:i:s', strtotime($post['date'])),
                         'modified' => date('Y-m-d H:i:s', strtotime($post['modified'])),
                         'catid' => 2, //uncategorized
                         'language' => '*', // all languages
                     ];
-                    error_log(json_encode($data));
-                    // Send data to Joomla API
-                    $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($data), 
+
+                    $all_data[] = $data;
+                    // error_log('Data to be sent to Joomla API: ' . print_r($data, true));
+                }
+                    error_log(json_encode($all_data, JSON_PRETTY_PRINT));
+                    
+                    $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($all_data),
                     [
-                        'headers' => [
-                            'Authorization' => 'Bearer ' . $joomla_token,
-                            'Content-Type' => 'application/json',
-                        ],
+                        'X-Joomla-Token' => $joomla_token,
+                        'Accept' => 'application/vnd.api+json',
+                        'Content-Type' => 'application/json'
                     ]);
                     error_log('Joomla API Response: ');
                     // error_log(print_r($response_joomla, true));
-                    if ($response_joomla->code === 201) {
-                        error_log('Successfully imported post');
-                    } else {
-                        error_log('Error importing post: ');
-                    }
-                }
+                    // if ($response_joomla->code === 201) {
+                    //     error_log('Successfully imported post');
+                    // } else {
+                    //     error_log('Error importing post: ');
+                    // }
             }
         } else {
             // Handle error
