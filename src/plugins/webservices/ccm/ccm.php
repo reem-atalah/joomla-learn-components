@@ -1,9 +1,11 @@
 <?php
+namespace
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Router\Route as ApiRoute;
 use Joomla\Router\Route;
 class PlgWebservicesCcm extends CMSPlugin
 {
+    // override subscriber method
     public function onBeforeApiRoute(&$router)
     {
         $router->createCRUDRoutes(

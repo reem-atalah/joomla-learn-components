@@ -28,12 +28,16 @@
             <folder>services</folder>
             <folder>src</folder>
             <folder>tmpl</folder>
-            <folder>language</folder>
             <folder>sql</folder>
             <folder>forms</folder>
             <file>config.xml</file>
             <file>access.xml</file>
         </files>
+        <languages>
+            <language tag="en-GB">language/en-GB/com_ccm.sys.ini</language>
+			<language tag="en-GB">language/en-GB/com_ccm.ini</language>
+			<language tag="en-GB">language/en-GB/com_ccm.sys.ini</language>
+		</languages>
         <menu link="option=com_ccm" img="class:default">COM_CCM_MENU_BACKEND</menu>
     </administration>
 </extension>
