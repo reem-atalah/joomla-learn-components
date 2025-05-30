@@ -57,7 +57,7 @@ class Migration
                     $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($data),
                     [
                         'Authorization' => 'Bearer ' . $joomla_token,
-                        // 'Accept' => 'application/vnd.api+json',
+                        'Accept' => 'application/vnd.api+json',
                         'Content-Type' => 'application/json'
                     ]);
                     error_log('Joomla API Response: ');
