@@ -16,8 +16,8 @@ class CmssModel extends ListModel {
             $config['filter_fields'] = [
                 'id',
                 'a.id',
-                'cms_name',
-                'a.cms_name',
+                'name',
+                'a.name',
                 'documents',
                 'a.documents',
             ];
@@ -29,7 +29,7 @@ class CmssModel extends ListModel {
         parent::__construct($config, $factory);
     }
 
-    protected function populateState($ordering = 'cms_name', $direction = 'ASC') {
+    protected function populateState($ordering = 'name', $direction = 'ASC') {
         $app   = Factory::getApplication();
 
         // define the limit of the pagination
@@ -52,16 +52,16 @@ class CmssModel extends ListModel {
         $db    = $this->getDatabase();
         $query = $db->getQuery(true);
         $query->select(
-            $this->getState('list.select', 'a.id, a.cms_name')
+            $this->getState('list.select', 'a.id, a.name')
         )->from($db->quoteName('#__ccm_cms', 'a'));
 
         $search = $this->getState('filter.search');
         if (!empty($search))
         {
             $search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-            $query->where('(a.cms_name LIKE ' . $search . ')');
+            $query->where('(a.name LIKE ' . $search . ')');
         }
-        $orderCol  = $this->state->get('list.ordering', 'a.cms_name');
+        $orderCol  = $this->state->get('list.ordering', 'a.name');
         $orderDirn = $this->state->get('list.direction', 'ASC');
         $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
         return $query;

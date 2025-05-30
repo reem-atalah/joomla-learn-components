@@ -1,0 +1,16 @@
+<!-- the CCM structure will be here -->
+<form addfieldprefix="Reem\Component\CCM\Administrator\Fields">
+    <field name="id" type="ccm" label="ID" description="CCM ID maps to the CMS field, e.g. ID" />
+    <field name="title" type="ccm" label="Title" description="CCM Title maps to the CMS field, e.g. title" />
+    <field name="slug" type="ccm" label="Slug" description="CCM Slug maps to the CMS field, e.g. slug" />
+    <field name="body" type="ccm" label="Body" description="CCM Body maps to the CMS field, e.g. content" />
+    <field name="summary" type="ccm" label="Summary" description="CCM Summary maps to the CMS field, e.g. excerpt" />
+    <field name="status" type="ccm" label="Status" description="CCM Status maps to the CMS field, e.g. status" />
+    <field name="created_at" type="ccm" label="Created" description="CCM Created At maps to the CMS field, e.g. date" />
+    <field name="updated_at" type="ccm" label="Updated" description="CCM Updated At maps to the CMS field, e.g. modified" />
+    <field name="content_type" type="ccm" label="Type" description="CCM Content Type maps to the CMS field, e.g. type" />
+    <field name="language" type="ccm" label="Language" description="CCM Language maps to the CMS field, e.g. lang" />
+    <field name="author" type="ccm" label="Author" description="CCM Author maps to the CMS field (array), e.g. author" />
+    <field name="categories" type="ccm" label="Categories" description="CCM Categories maps to the CMS field (array or list of arrays), e.g. categories" />
+    <field name="tags" type="ccm" label="Tags" description="CCM Tags maps to the CMS field (array or list of arrays), e.g. tags" />
+</form>

@@ -6,6 +6,6 @@ class JsonapiView extends BaseApiView
 {
     protected $fieldsToRenderList = [
         'id',
-        'cms_name'
+        'name'
     ];
 }

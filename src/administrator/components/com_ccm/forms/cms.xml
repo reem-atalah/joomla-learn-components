@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form addfieldprefix="Reem\Component\CCM\Administrator\Fields">
     <field
-        name="cms_name"
+        name="name"
         type="text"
-        label="COM_CCM_CONFIG_CMS_NAME_LABEL"
+        label="COM_CCM_CONFIG_NAME_LABEL"
         required="true"
     />
-    <field
+    <!-- <field
         name="id"
         type="text"
-        label="COM_CCM_CONFIG_CMS_ID_LABEL"
+        label="COM_CCM_CONFIG_ID_LABEL"
         required="false"
-    />
+    /> -->
+    <field name="id" type="hidden" />
     <field
-        name="cms_migration"
+        name="migration"
         type="cms"
-        label="Select CMS you want to migrate with"
+        label="COM_CCM_CONFIG_MIGRATION_LABEL"
         required="false"
     />
-    <field
+    <!-- <field
         name="documents"
         type="subform"
         label="Documents"
@@ -26,5 +27,24 @@
         formsource="administrator/components/com_ccm/forms/document.xml"
         multiple="true"
         layout="joomla.form.field.subform.repeatable"
+    /> -->
+    <field
+        name="url"
+        type="text"
+        label="COM_CCM_CONFIG_URL_LABEL"
+        required="true"
+    />
+    <field
+        name="credentials"
+        type="text"
+        label="COM_CCM_CONFIG_CREDENTIALS_LABEL"
+        required="false"
+    />
+    <field 
+        name="ccm_mapping"
+        type="subform"
+        label="COM_CCM_CONFIG_CCM_MAPPING_LABEL"
+        formsource="administrator/components/com_ccm/forms/ccm_mapping.xml"
+        layout="joomla.form.field.subform.default"
     />
 </form>

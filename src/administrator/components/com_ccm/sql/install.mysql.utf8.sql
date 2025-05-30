@@ -4,13 +4,19 @@
 
 CREATE TABLE IF NOT EXISTS `#__ccm_cms` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `cms_name` varchar(100) NOT NULL DEFAULT '',
-  `documents` JSON DEFAULT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT '',
+  `credentials` varchar(255) DEFAULT NULL,
+  -- `documents` JSON DEFAULT NULL,
+  `content_keys` JSON DEFAULT NULL,
+  `ccm_mapping` JSON DEFAULT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `#__ccm_cms`
-INSERT INTO `#__ccm_cms` (`id`, `cms_name`) VALUES
+INSERT INTO `#__ccm_cms` (`id`, `name`) VALUES
 (1, 'Joomla'),
 (2, 'WordPress'),
 (3, 'Drupal'),
