@@ -1,0 +1,27 @@
+{
+  "ContentItem": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "title": { "type": "string" },
+      "slug": { "type": "string" },
+      "body": { "type": "string" },
+      "summary": { "type": "string" },
+      "status": { "type": "string", "enum": ["published", "draft", "trashed"] },
+      "created_at": { "type": "string", "format": "date-time" },
+      "updated_at": { "type": "string", "format": "date-time" },
+      "content_type": { "type": "string" },
+      "language": { "type": "string" },
+      "author": { "$ref": "#/definitions/User" },
+      "categories": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/Category" }
+      },
+      "tags": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/Tag" }
+      }
+    },
+    "required": ["id", "title", "body"]
+  }
+}

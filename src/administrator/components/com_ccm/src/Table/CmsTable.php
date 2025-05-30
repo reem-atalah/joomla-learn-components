@@ -8,7 +8,7 @@ use Joomla\Database\DatabaseInterface;
 
 class CmsTable extends Table
 {
-    protected $_jsonEncode = ['documents', 'params'];
+    protected $_jsonEncode = ['documents', "ccm_mapping"];
 
     public function __construct(DatabaseInterface $db)
     {
