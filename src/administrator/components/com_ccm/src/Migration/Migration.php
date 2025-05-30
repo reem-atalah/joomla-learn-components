@@ -50,17 +50,17 @@ class Migration
                         'language' => '*', // all languages
                     ];
 
-                    $all_data[] = $data;
-                    // error_log('Data to be sent to Joomla API: ' . print_r($data, true));
-                }
-                    error_log(json_encode($all_data, JSON_PRETTY_PRINT));
+                    // $all_data[] = $data;
+                    error_log('Data to be sent to Joomla API: ' . print_r($data, true));
+                    // error_log(json_encode($all_data, JSON_PRETTY_PRINT));
                     
-                    $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($all_data),
+                    $response_joomla = HttpFactory::getHttp($options)->post($url_joomla . '/content/articles', json_encode($data),
                     [
-                        'X-Joomla-Token' => $joomla_token,
-                        'Accept' => 'application/vnd.api+json',
+                        'Authorization' => 'Bearer ' . $joomla_token,
+                        // 'Accept' => 'application/vnd.api+json',
                         'Content-Type' => 'application/json'
                     ]);
+                }
                     error_log('Joomla API Response: ');
                     // error_log(print_r($response_joomla, true));
                     // if ($response_joomla->code === 201) {
