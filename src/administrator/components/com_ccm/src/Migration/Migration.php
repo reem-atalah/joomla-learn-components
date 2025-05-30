@@ -19,8 +19,8 @@ class Migration
     public function migrate()
     {
         $url_wordpress = 'https://public-api.wordpress.com/rest/v1.1/sites/najmadates.wordpress.com'; // need to be added in the config
-        $url_joomla = 'http://localhost:8000/api/index.php/v1'; // need to be added in the config
-        $joomla_token = 'c2hhMjU2OjcyMDo2NDJlNjY4MjY5ZGVhOWYwZGQ2NWY5NGQwYjg2YWUwODk2ZTRiMmE0MGE1MTY4Y2JlZDZlMmZkNTc5MDU4MTgz'; // need to be added in the config
+        $url_joomla = 'https://pbf1.infotech.ch/api/index.php/v1'; // need to be added in the config
+        $joomla_token = 'c2hhMjU2OjE4MDo4ZTk0MGY2YWZhM2EyN2MxMTljZjI0ODFlZDA4ZDEzYjA1YjE4ODEzZTYxMWMzY2I0NWI1OTNiYjhiOTQyMWFh'; // need to be added in the config
         $options = new \Joomla\Registry\Registry;
         
         // Export data from wordpress
@@ -60,9 +60,9 @@ class Migration
                         // 'Accept' => 'application/vnd.api+json',
                         'Content-Type' => 'application/json'
                     ]);
-                }
                     error_log('Joomla API Response: ');
-                    // error_log(print_r($response_joomla, true));
+                    error_log(print_r($response_joomla, true));
+                }
                     // if ($response_joomla->code === 201) {
                     //     error_log('Successfully imported post');
                     // } else {
