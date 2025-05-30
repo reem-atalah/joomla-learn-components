@@ -45,9 +45,9 @@ class CmsModel extends AdminModel {
         return $data;
     }
 
-    public function discoverCmsProperties($cms_url)
+    public function discoverCmsProperties($url)
     {
-        $response = HttpFactory::getHttp()->get($cms_url, [
+        $response = HttpFactory::getHttp()->get($url, [
             'Accept' => 'application/json',
         ]);
         $body = json_decode($response->body, true);
