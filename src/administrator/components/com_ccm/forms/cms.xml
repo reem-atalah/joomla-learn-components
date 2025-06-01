@@ -42,9 +42,7 @@
     />
     <field 
         name="ccm_mapping"
-        type="subform"
+        type="ccm"
         label="COM_CCM_CONFIG_CCM_MAPPING_LABEL"
-        formsource="administrator/components/com_ccm/forms/ccm_mapping.xml"
-        layout="joomla.form.field.subform.default"
     />
 </form>

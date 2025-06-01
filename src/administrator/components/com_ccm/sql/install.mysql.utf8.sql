@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `#__ccm_cms` (
   `url` varchar(255) NOT NULL DEFAULT '',
   `credentials` varchar(255) DEFAULT NULL,
   -- `documents` JSON DEFAULT NULL,
-  `content_keys` JSON DEFAULT NULL,
+  `content_keys_types` JSON DEFAULT NULL,
   `ccm_mapping` JSON DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
