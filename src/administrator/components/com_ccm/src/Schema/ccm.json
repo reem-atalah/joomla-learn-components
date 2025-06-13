@@ -1,0 +1,44 @@
+{
+  "ContentItem": 
+  [
+    {
+    "type": "post",
+    "properties": {
+      "id": { "type": "integer" },
+      "uid": { "type": "string" },
+      "title": { "type": "string" },
+      "alias": { "type": "string" },
+      "context": { "type": "html" },
+      "url": { "type": "url" },
+      "urls": {
+        "type": "array",
+        "items": { "type": "url" }
+      },
+      "summary": { "type": "string" },
+      "status": { "type": "string", "enum": ["published", "unpublished", "draft", "trashed"] },
+      "created": { "type": "date" },
+      "modified": { "type": "date" },
+      "type": { "type": "string" },
+      "image": { "type": "url" }, 
+      "images": {
+        "type": "array",
+        "items": { "type": "url" }
+      },
+      "language": { "type": "string" },
+      "author": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      },
+      "categories": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/Category" }
+      },
+      "tags": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/Tag" }
+      }
+    },
+    "required": ["id", "title", "context"]
+    }
+  ]
+}

@@ -11,13 +11,16 @@ class HtmlView extends BaseHtmlView
 
     public function display($tpl = null): void
     {
-        echo 'TEST';
+        /** @var Migration $model */
+        $model = $this->getModel();
+        
+        $this->item  = $model->getItem();
+        $this->form  = $model->getForm();
+        $this->state = $model->getState();
 
-        $migration = new Migration();
-        $migration->migrate();
-
-        echo "Migration completed.\n";
-
+        // after each step say echo "Mapping is done" --> then echo "Migration is done"
+        //this can be added in js in frontend in mdeia folder
+        //from webassets 
         parent::display($tpl);
     }
 }

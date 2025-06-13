@@ -36,10 +36,10 @@ class CmsController extends FormController
         $oldItem = $model->getItem($this->input->getInt('id', 0));
         $old_url = $oldItem ? $oldItem->url : null;
 
-        if ($url !== $old_url && $url !== '') {
-            $model->discoverCmsProperties($url);
-            $model->mapCmsToCCM();
-        }
+        // if ($url !== $old_url && $url !== '') {
+        //     $model->discoverCmsProperties($url);
+        //     $model->mapCmsToCCM();
+        // }
 
         parent::save($key, $urlVar);
     }

@@ -1,0 +1,57 @@
+{
+  "ContentItem": 
+  [
+    {
+    "type": "articles",
+    "properties": {
+      "id": "id",
+      "asset_id": null,
+      "title": "title",
+      "alias": "alias",
+      "articletext": "context",
+      "url": "url",
+      "urls": "urls",
+      "attribs": null,
+      "summary": "summary",
+      "state": {
+        "ccm": "status",
+        "map": {
+          "publish": 1,
+          "draft": 0,
+          "pending": 0,
+          "future": 0,
+          "private": 0,
+          "trash": -2
+        },
+        "default": 0
+      },
+      "created": "created",
+      "created_by": null,
+      "created_by_alias": null,
+      "modified": "modified",
+      "modified_by": null,
+      "checked_out": null,
+      "checked_out_time": null,
+      "type": "type",
+      "publish_up": null,
+      "publish_down": null,
+      "image": "image",
+      "images": "images",
+      "version": null,
+      "metakey": null,
+      "metadesc": null,
+      "language": {"ccm": "language", "default": "*"},
+      "access": null,
+      "hits": null,
+      "metadata": null,
+      "featured": null,
+      "note": null,
+      "author": "author",
+      "categories": "categories",
+      "catid": {"ccm": "catid", "default": 2},
+      "tags": "tags"
+    },
+    "required": ["id", "title", "text"]
+    }
+  ]
+}

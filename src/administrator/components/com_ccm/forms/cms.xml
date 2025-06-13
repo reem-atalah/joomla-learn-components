@@ -13,12 +13,6 @@
         required="false"
     /> -->
     <field name="id" type="hidden" />
-    <field
-        name="migration"
-        type="cms"
-        label="COM_CCM_CONFIG_MIGRATION_LABEL"
-        required="false"
-    />
     <!-- <field
         name="documents"
         type="subform"
@@ -40,9 +34,9 @@
         label="COM_CCM_CONFIG_CREDENTIALS_LABEL"
         required="false"
     />
-    <field 
+    <!-- <field 
         name="ccm_mapping"
         type="ccm"
         label="COM_CCM_CONFIG_CCM_MAPPING_LABEL"
-    />
+    /> -->
 </form>

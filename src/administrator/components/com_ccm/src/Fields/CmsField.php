@@ -17,7 +17,12 @@ class CmsField extends ListField {
             ->from('#__ccm_cms AS a')
             ->order('a.name', 'asc');
         $db->setQuery($query);
-        $options = [];
+        $options = [
+            (object)[
+                'value' => '',
+                'text'  => '-Select-'
+            ]
+        ];
         foreach ($db->loadAssocList() as $row) {
             $options[] = (object)[
                 'value' => $row['id'],

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldprefix="Reem\Component\CCM\Administrator\Fields">
+    <!-- need to use js to don't allow the source and target to be similar -->
+    <field
+        name="source_cms"
+        type="cms"
+        label="MIGRATION_SOURCE_CMS"
+        required="true"
+        default=""
+    />
+    <field
+        name="target_cms"
+        type="cms"
+        label="MIGRATION_TARGET_CMS"
+        required="true"
+        default=""
+    />
+    <field
+        name="source_cms_object_type"
+        type="list"
+        label="MIGRATION_SOURCE_CMS_OBJECT_TYPE"
+        required="true"
+        default=""
+    >
+        <!-- options need to be dynamic -->
+        <option value="">Select Object Type</option>
+        <option value="posts">Posts</option>
+    </field>
+    <field
+        name="target_cms_object_type"
+        type="list"
+        label="MIGRATION_TARGET_CMS_OBJECT_TYPE"
+        required="true"
+        default=""
+    >
+        <option value="">Select Object Type</option>
+        <option value="articles">Articles</option>
+    </field>
+</form>
